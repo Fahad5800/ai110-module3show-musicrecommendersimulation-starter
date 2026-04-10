@@ -19,6 +19,8 @@ Replace this paragraph with your own summary of what your version does.
 
 Explain your design in plain language.
 
+- Real-world music recommenders like Spotify use a mix of collaborative filtering—analyzing what similar users listen to—and content-based filtering, matching song attributes to user preferences. My version prioritizes a simple content-based approach, focusing on features like genre, mood, energy, valence, tempo, danceability, and acousticness to recommend songs that match the user's desired "vibe," emphasizing musical similarity over social trends.
+
 Some prompts to answer:
 
 - What features does each `Song` use in your system
@@ -29,7 +31,28 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+  Answers:
+- Each song in the system uses metadata (id, title, artist), categories (genre, mood) and audio features (energy, tempo_bpm, valence etc)
+- My user profile stores genre, mood, energy, valence, danceability, tempo, and acoustic preference. 
+- For each song, my 'Recommender' uses the following logic: 
+  - +2.0 for genre match
+  - +1.0 for mood match
+  - 0-2.0 for audio similarity (weighted across 4 features)
+  - +0.5/+0.3 acoustic preference bonuses
+  - Total range: 0.0 to 5.0 points
+- My system scores all songs individually and then based on that scores makes a list of song sorted by the scores. After getting a list of songs for a user, it returns top 5 (default) songs. 
+
+
+
 ---
+
+## Sample Output
+
+Here is the recommender output for a user who prefers pop and happy music:
+
+![Music Recommender Terminal Output](assets/Music%20Recommender%20Terminal.png)
+
+As you can see, "Sunrise City" ranks first because it matches both genre and mood...
 
 ## Getting Started
 
