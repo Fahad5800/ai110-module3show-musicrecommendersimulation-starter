@@ -135,7 +135,7 @@ You can add more tests in `tests/test_recommender.py`.
 
 ---
 
-## Experiments You Tried
+## Experiments That I Tried
 
 **Experiment 1 — Weight shift: doubled energy weight, halved genre bonus**
 
